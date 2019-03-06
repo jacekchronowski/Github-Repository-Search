@@ -1,0 +1,7 @@
+package jc.highapp.githubrepositorysearch.search
+
+import androidx.fragment.app.Fragment
+
+class SearchFragment : Fragment() {
+
+}
