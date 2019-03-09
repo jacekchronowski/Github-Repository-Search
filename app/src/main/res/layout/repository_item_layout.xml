@@ -29,13 +29,30 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/tv_repository_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/repository_item_layout_default_margin"
+                android:layout_marginEnd="@dimen/repository_item_layout_default_margin"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textSize="@dimen/repository_desc_text_size"
+                app:layout_constraintBottom_toTopOf="@+id/tv_repository_stars"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_repo_owner_avatar"
+                app:layout_constraintTop_toBottomOf="@+id/tv_repository_name"
+                tools:text="fsdfdsf" />
+
+            <TextView
                 android:id="@+id/tv_repository_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/repository_item_layout_default_margin"
-                app:layout_constraintBottom_toTopOf="@+id/tv_repository_stars"
+                android:textSize="@dimen/repository_name_text_size"
                 app:layout_constraintStart_toEndOf="@+id/iv_repo_owner_avatar"
                 app:layout_constraintTop_toTopOf="parent"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tv_repository_desc"
                 tools:text="Repository Name" />
 
             <TextView
@@ -43,10 +60,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/repository_item_layout_default_margin"
+                android:drawableEnd="@drawable/ic_baseline_star_24px"
+                android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_repo_owner_avatar"
-                app:layout_constraintTop_toBottomOf="@+id/tv_repository_name"
-                tools:text="Repository Stats: 44222" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_repository_desc"
+                tools:text="44222" />
+
+            <TextView
+                android:id="@+id/tv_programming_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/programming_language_margin"
+                android:layout_marginBottom="@dimen/programming_language_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textAllCaps="true"
+                android:textSize="@dimen/programming_language_text_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="JavaScript" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,5 +11,5 @@ interface GitHubApi {
     @GET("search/repositories")
     fun getRepositoriesByName(
         @Query("q") searchQuery : String?,
-        @Query("pageNumber") pageNumber : Int) : Observable<Response<RepositoriesResponse>>
+        @Query("page") pageNumber : Int) : Observable<Response<RepositoriesResponse>>
 }

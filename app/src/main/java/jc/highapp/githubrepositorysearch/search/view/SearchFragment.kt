@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.jakewharton.rxbinding3.widget.textChangeEvents
+import com.jakewharton.rxbinding3.widget.afterTextChangeEvents
 import io.reactivex.disposables.Disposable
 import jc.highapp.githubrepositorysearch.R
 import jc.highapp.githubrepositorysearch.search.adapter.RepositoryListAdapter
@@ -38,16 +38,31 @@ class SearchFragment : Fragment(), KodeinAware, SearchView {
         presenter.onInit()
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        savedInstanceState?.let {
+            it.getString(SEARCH_KEY_WORD)?.let {
+                et_search.setText(it)
+            }
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         presenter.onResume()
         subscribeToTextViewChanges()
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(SEARCH_KEY_WORD, et_search.text.toString())
+    }
+
     private fun subscribeToTextViewChanges() {
+
         searchDisposable = et_search
-            .textChangeEvents()
-            .flatMap { presenter.searchRepositoriesByName(it.text.toString()) }
+            .afterTextChangeEvents()
+            .flatMap { presenter.searchRepositoriesByName(it.editable.toString()) }
             .subscribe(
                 {
                     scrollListener.resetState()
@@ -108,6 +123,10 @@ class SearchFragment : Fragment(), KodeinAware, SearchView {
         activity?.let {
             Toast.makeText(it, R.string.error_message, Toast.LENGTH_LONG).show()
         }
+    }
+
+    companion object {
+        const val SEARCH_KEY_WORD = "SEARCH_KEY_WORD"
     }
 
 }

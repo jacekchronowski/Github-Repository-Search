@@ -18,7 +18,9 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         navigator.bindRoot(this)
-        navigator.startFlow()
+        if(savedInstanceState == null) {
+            navigator.startFlow()
+        }
     }
 
     override fun onDestroy() {
