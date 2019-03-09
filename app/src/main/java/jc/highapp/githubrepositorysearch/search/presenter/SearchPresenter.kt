@@ -23,11 +23,11 @@ class SearchPresenter(
         disposables.clear()
     }
 
-    fun attachView(searchView: SearchView) {
+    fun bindView(searchView: SearchView) {
         this.view = searchView
     }
 
-    fun detachView() {
+    fun unbindView() {
         this.view = null
     }
 
@@ -42,5 +42,15 @@ class SearchPresenter(
     fun searchRepositoriesByName(text : String) : Observable<List<RepositoryViewModel>>{
         return searchInteractor.execute(text)
     }
+
+    fun onLoadMore(text : String, page: Int) {
+        searchInteractor
+            .execute(text, page)
+            .subscribe(
+                {view?.appendToRepositoryList(it)},
+                {view?.showError()})
+            .addTo(disposables)
+    }
+
 
 }

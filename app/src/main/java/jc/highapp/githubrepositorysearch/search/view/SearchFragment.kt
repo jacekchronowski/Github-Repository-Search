@@ -14,6 +14,7 @@ import jc.highapp.githubrepositorysearch.R
 import jc.highapp.githubrepositorysearch.search.adapter.RepositoryListAdapter
 import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
 import jc.highapp.githubrepositorysearch.search.presenter.SearchPresenter
+import jc.highapp.githubrepositorysearch.utils.EndlessRecyclerViewScrollListener
 import kotlinx.android.synthetic.main.search_fragment_layout.*
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -25,8 +26,10 @@ class SearchFragment : Fragment(), KodeinAware, SearchView {
     private val presenter: SearchPresenter by instance()
     private var searchDisposable: Disposable? = null
 
+    private lateinit var scrollListener: EndlessRecyclerViewScrollListener
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        presenter.attachView(this)
+        presenter.bindView(this)
         return inflater.inflate(R.layout.search_fragment_layout, container, false)
     }
 
@@ -47,6 +50,7 @@ class SearchFragment : Fragment(), KodeinAware, SearchView {
             .flatMap { presenter.searchRepositoriesByName(it.text.toString()) }
             .subscribe(
                 {
+                    scrollListener.resetState()
                     loadRepositoryList(it)
                 },
                 {
@@ -70,7 +74,8 @@ class SearchFragment : Fragment(), KodeinAware, SearchView {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        presenter.detachView()
+        presenter.unbindView()
+        rv_search_results.removeOnScrollListener(scrollListener)
     }
 
     override fun initList() {
@@ -78,6 +83,13 @@ class SearchFragment : Fragment(), KodeinAware, SearchView {
             layoutManager = LinearLayoutManager(activity).apply { orientation = RecyclerView.VERTICAL }
             adapter = RepositoryListAdapter(presenter::onRepositoryClick)
         }
+        scrollListener = object : EndlessRecyclerViewScrollListener(rv_search_results.layoutManager as LinearLayoutManager) {
+            override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
+                presenter.onLoadMore(et_search.text.toString(), page)
+            }
+        }
+
+        rv_search_results.addOnScrollListener(scrollListener)
     }
 
     override fun loadRepositoryList(repositories: List<RepositoryViewModel>) {

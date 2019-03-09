@@ -2,4 +2,7 @@
 <resources>
     <dimen name="repo_owner_avatar_size">72dp</dimen>
     <dimen name="repository_item_layout_default_margin">8dp</dimen>
+    <dimen name="card_view_margin">6dp</dimen>
+    <dimen name="card_view_rounding">4dp</dimen>
+    <dimen name="card_view_elevation">4dp</dimen>
 </resources>

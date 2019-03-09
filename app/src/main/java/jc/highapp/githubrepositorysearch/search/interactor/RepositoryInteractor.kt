@@ -11,7 +11,7 @@ class RepositoryInteractor(
     private val gitHubApi: GitHubApi,
     private val repositoryMapper : RepositoryMapper) {
 
-    fun execute(searchText : String, pageNumber : Int = 1) : Observable<List<RepositoryViewModel>> {
+    fun execute(searchText : String, pageNumber : Int) : Observable<List<RepositoryViewModel>> {
 
         if(searchText.isEmpty()) {
             return Observable.just(listOf())
@@ -21,7 +21,8 @@ class RepositoryInteractor(
             .getRepositoriesByName(
                 "$searchText in:name",
                 pageNumber)
-            .map { it.items }
+            .filter { it.isSuccessful}
+            .map { it.body()?.items ?: listOf()}
             .map { it.map { repositoryMapper.mapToViewModel(it) } }
     }
 }
