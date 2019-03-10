@@ -24,20 +24,6 @@ class SearchPresenterTest {
     private val searchRouter : SearchRouter = mock()
     private val view : SearchView = mock()
 
-    @Rule @JvmField var testRule = RxTestRuleScheduler()
-
-    companion object {
-        @JvmStatic @AfterClass
-        fun tearDownClass() {
-            RxAndroidPlugins.reset()
-        }
-
-        @JvmStatic @BeforeClass
-        fun setupClass() {
-            RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
-        }
-    }
-
     @Before
     fun setUp() {
         sut = SearchPresenter(searchInteractor, searchRouter)
