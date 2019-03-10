@@ -13,14 +13,15 @@ class SearchPresenter(
     private val searchRouter: SearchRouter) {
 
     private var view: SearchView? = null
-    private val disposables : CompositeDisposable = CompositeDisposable()
+    private var disposables : CompositeDisposable? = null
 
     fun onResume() {
-
+        disposables = CompositeDisposable()
     }
 
     fun onPause() {
-        disposables.clear()
+        disposables?.dispose()
+        disposables = null
     }
 
     fun bindView(searchView: SearchView) {
