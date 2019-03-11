@@ -22,8 +22,7 @@ class RepositoryInteractorTest {
     private val gitHubApi : GitHubApi = mock()
     private val repositoryMapper : RepositoryMapper = mock()
 
-    @Rule
-    @JvmField var testRule = RxTestRuleScheduler()
+    @Rule @JvmField var testRule = RxTestRuleScheduler()
 
     companion object {
         @JvmStatic @AfterClass
