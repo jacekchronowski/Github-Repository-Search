@@ -1,4 +1,4 @@
-package jc.highapp.githubrepositorysearch
+package jc.highapp.githubrepositorysearch.interactor
 
 import com.nhaarman.mockitokotlin2.*
 import io.reactivex.Observable

@@ -1,4 +1,4 @@
-package jc.highapp.githubrepositorysearch
+package jc.highapp.githubrepositorysearch.presenter
 
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
