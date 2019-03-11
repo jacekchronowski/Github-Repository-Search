@@ -12,7 +12,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "jc.highapp.githubrepositorysearch.CustomTestRunner"
+        testInstrumentationRunner "jc.highapp.githubrepositorysearch.testrunner.CustomTestRunner"
     }
     buildTypes {
         release {
@@ -58,6 +58,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'com.squareup.rx.idler:rx2-idler:0.9.1'
     androidTestImplementation 'androidx.test:rules:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.1'
+
 
 }

@@ -13,5 +13,9 @@ class CustomTestRunner : AndroidJUnitRunner() {
         RxJavaPlugins.setInitSingleSchedulerHandler(Rx2Idler.create("RxJava 2.x Single Scheduler"))
         super.onStart()
     }
+
+
+
+
 }
 
