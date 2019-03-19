@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jakewharton.rxbinding3.widget.afterTextChangeEvents
 import io.reactivex.disposables.Disposable
 import jc.highapp.githubrepositorysearch.R
+import jc.highapp.githubrepositorysearch.main.BaseFragment
 import jc.highapp.githubrepositorysearch.search.adapter.RepositoryListAdapter
 import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
 import jc.highapp.githubrepositorysearch.search.presenter.SearchPresenter
@@ -20,23 +21,16 @@ import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
 
-class SearchFragment : Fragment(), KodeinAware, SearchView {
+class SearchFragment : BaseFragment<SearchPresenter,SearchView>(), KodeinAware, SearchView {
 
     override val kodein: Kodein by lazy { (activity as KodeinAware).kodein }
-    private val presenter: SearchPresenter by instance()
-    private var searchDisposable: Disposable? = null
+    override val presenter: SearchPresenter by instance()
+    override val layoutResId: Int = R.layout.search_fragment_layout
+
+    private var searchDisposable : Disposable? = null
 
     private lateinit var scrollListener: EndlessRecyclerViewScrollListener
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        presenter.bindView(this)
-        return inflater.inflate(R.layout.search_fragment_layout, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        presenter.onInit()
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -49,7 +43,6 @@ class SearchFragment : Fragment(), KodeinAware, SearchView {
 
     override fun onResume() {
         super.onResume()
-        presenter.onResume()
         subscribeToTextViewChanges()
     }
 
@@ -75,7 +68,6 @@ class SearchFragment : Fragment(), KodeinAware, SearchView {
 
     override fun onPause() {
         super.onPause()
-        presenter.onPause()
         unsubscribeToTextViewChanges()
     }
 
@@ -89,7 +81,6 @@ class SearchFragment : Fragment(), KodeinAware, SearchView {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        presenter.unbindView()
         rv_search_results.removeOnScrollListener(scrollListener)
     }
 

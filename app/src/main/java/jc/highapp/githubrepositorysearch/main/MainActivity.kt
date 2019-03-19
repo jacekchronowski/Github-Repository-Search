@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         if(savedInstanceState == null) {
             navigator.startFlow()
         }
+
     }
 
     override fun onDestroy() {

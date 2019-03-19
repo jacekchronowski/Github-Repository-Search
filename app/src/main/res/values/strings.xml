@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">GitHub Repository Search</string>
     <string name="error_message">An error has occured.</string>
+    <string name="events">Events</string>
+    <string name="repositories" >Repositories</string>
+    <string name="users">Users</string>
 </resources>

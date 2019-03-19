@@ -2,6 +2,7 @@ package jc.highapp.githubrepositorysearch.search.presenter
 
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
+import jc.highapp.githubrepositorysearch.main.BasePresenter
 import jc.highapp.githubrepositorysearch.search.interactor.SearchInteractor
 import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
 import jc.highapp.githubrepositorysearch.search.router.SearchRouter
@@ -10,29 +11,10 @@ import jc.highapp.githubrepositorysearch.utils.addTo
 
 class SearchPresenter(
     private val searchInteractor : SearchInteractor,
-    private val searchRouter: SearchRouter) {
+    private val searchRouter: SearchRouter) : BasePresenter<SearchView>(){
 
-    private var view: SearchView? = null
-    private var disposables : CompositeDisposable? = null
 
-    fun onResume() {
-        disposables = CompositeDisposable()
-    }
-
-    fun onPause() {
-        disposables?.dispose()
-        disposables = null
-    }
-
-    fun bindView(searchView: SearchView) {
-        this.view = searchView
-    }
-
-    fun unbindView() {
-        this.view = null
-    }
-
-    fun onInit() {
+    override fun onInit() {
         view?.initList()
     }
 
