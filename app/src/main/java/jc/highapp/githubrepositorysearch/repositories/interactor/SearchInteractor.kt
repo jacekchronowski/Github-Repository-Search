@@ -1,9 +1,9 @@
-package jc.highapp.githubrepositorysearch.search.interactor
+package jc.highapp.githubrepositorysearch.repositories.interactor
 
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
+import jc.highapp.githubrepositorysearch.repositories.model.RepositoryViewModel
 import java.util.concurrent.TimeUnit
 
 class SearchInteractor(private val repositoryInteractor: RepositoryInteractor) {

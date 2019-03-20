@@ -1,9 +1,9 @@
-package jc.highapp.githubrepositorysearch.search.adapter
+package jc.highapp.githubrepositorysearch.repositories.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
+import jc.highapp.githubrepositorysearch.repositories.model.RepositoryViewModel
 import kotlinx.android.synthetic.main.repository_item_layout.view.*
 
 class RepositoryViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {

@@ -1,10 +1,10 @@
-package jc.highapp.githubrepositorysearch.search.adapter
+package jc.highapp.githubrepositorysearch.repositories.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import jc.highapp.githubrepositorysearch.R
-import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
+import jc.highapp.githubrepositorysearch.repositories.model.RepositoryViewModel
 
 class RepositoryListAdapter(
     private val onRepositoryClick : (RepositoryViewModel) -> Unit) : RecyclerView.Adapter<RepositoryViewHolder>() {

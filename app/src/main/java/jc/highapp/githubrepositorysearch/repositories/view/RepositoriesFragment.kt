@@ -1,30 +1,25 @@
-package jc.highapp.githubrepositorysearch.search.view
+package jc.highapp.githubrepositorysearch.repositories.view
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jakewharton.rxbinding3.widget.afterTextChangeEvents
 import io.reactivex.disposables.Disposable
 import jc.highapp.githubrepositorysearch.R
 import jc.highapp.githubrepositorysearch.main.BaseFragment
-import jc.highapp.githubrepositorysearch.search.adapter.RepositoryListAdapter
-import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
-import jc.highapp.githubrepositorysearch.search.presenter.SearchPresenter
+import jc.highapp.githubrepositorysearch.repositories.adapter.RepositoryListAdapter
+import jc.highapp.githubrepositorysearch.repositories.model.RepositoryViewModel
+import jc.highapp.githubrepositorysearch.repositories.presenter.RepositoriesPresenter
 import jc.highapp.githubrepositorysearch.utils.EndlessRecyclerViewScrollListener
 import kotlinx.android.synthetic.main.search_fragment_layout.*
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
 
-class SearchFragment : BaseFragment<SearchPresenter,SearchView>(), KodeinAware, SearchView {
+class RepositoriesFragment : BaseFragment<RepositoriesPresenter,RepositoriesView>(), RepositoriesView {
 
-    override val kodein: Kodein by lazy { (activity as KodeinAware).kodein }
-    override val presenter: SearchPresenter by instance()
+    override val presenter: RepositoriesPresenter by instance()
     override val layoutResId: Int = R.layout.search_fragment_layout
 
     private var searchDisposable : Disposable? = null

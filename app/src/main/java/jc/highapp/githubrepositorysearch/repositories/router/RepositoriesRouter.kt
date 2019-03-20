@@ -1,9 +1,9 @@
-package jc.highapp.githubrepositorysearch.search.router
+package jc.highapp.githubrepositorysearch.repositories.router
 
 import jc.highapp.githubrepositorysearch.navigation.Navigator
-import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
+import jc.highapp.githubrepositorysearch.repositories.model.RepositoryViewModel
 
-class SearchRouter(private val navigator : Navigator) {
+class RepositoriesRouter(private val navigator : Navigator) {
     fun showRepositoryDetails(repositoryViewModel: RepositoryViewModel) {
         navigator.showPageInBrowser(repositoryViewModel.repositoryUrl)
     }

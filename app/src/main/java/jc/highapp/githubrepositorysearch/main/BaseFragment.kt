@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
-import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
 
-abstract class BaseFragment<P : BasePresenter<V>, V : BaseView> : Fragment(), BaseView{
+abstract class BaseFragment<P : BasePresenter<V>, V : BaseView> : Fragment(), BaseView, KodeinAware{
 
+    override val kodein: Kodein by lazy { (activity as KodeinAware).kodein }
     abstract val layoutResId : Int
     abstract val presenter : P
 

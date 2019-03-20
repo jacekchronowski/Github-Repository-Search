@@ -3,14 +3,12 @@ package jc.highapp.githubrepositorysearch.interactor
 import com.nhaarman.mockitokotlin2.*
 import io.reactivex.Observable
 import io.reactivex.android.plugins.RxAndroidPlugins
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import jc.highapp.githubrepositorysearch.network.api.GitHubApi
 import jc.highapp.githubrepositorysearch.network.model.repository.RepositoriesResponse
 import jc.highapp.githubrepositorysearch.network.model.repository.RepositoryApi
-import jc.highapp.githubrepositorysearch.search.interactor.RepositoryInteractor
-import jc.highapp.githubrepositorysearch.search.model.RepositoryMapper
-import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
+import jc.highapp.githubrepositorysearch.repositories.interactor.RepositoryInteractor
+import jc.highapp.githubrepositorysearch.repositories.model.RepositoryMapper
 import jc.highapp.githubrepositorysearch.utils.RxTestRuleScheduler
 import okhttp3.ResponseBody
 import org.junit.*

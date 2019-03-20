@@ -1,32 +1,28 @@
 package jc.highapp.githubrepositorysearch.presenter
 
-import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable
-import io.reactivex.android.plugins.RxAndroidPlugins
-import io.reactivex.schedulers.Schedulers
-import jc.highapp.githubrepositorysearch.search.interactor.SearchInteractor
-import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
-import jc.highapp.githubrepositorysearch.search.presenter.SearchPresenter
-import jc.highapp.githubrepositorysearch.search.router.SearchRouter
-import jc.highapp.githubrepositorysearch.search.view.SearchView
-import jc.highapp.githubrepositorysearch.utils.RxTestRuleScheduler
+import jc.highapp.githubrepositorysearch.repositories.interactor.SearchInteractor
+import jc.highapp.githubrepositorysearch.repositories.model.RepositoryViewModel
+import jc.highapp.githubrepositorysearch.repositories.presenter.RepositoriesPresenter
+import jc.highapp.githubrepositorysearch.repositories.router.RepositoriesRouter
+import jc.highapp.githubrepositorysearch.repositories.view.RepositoriesView
 import org.junit.*
 import java.io.IOException
 
-class SearchPresenterTest {
+class RepositoriesPresenterTest {
 
-    private lateinit var sut : SearchPresenter
+    private lateinit var sut : RepositoriesPresenter
 
     private val searchInteractor : SearchInteractor = mock()
-    private val searchRouter : SearchRouter = mock()
-    private val view : SearchView = mock()
+    private val repositoriesRouter : RepositoriesRouter = mock()
+    private val view : RepositoriesView = mock()
 
     @Before
     fun setUp() {
-        sut = SearchPresenter(searchInteractor, searchRouter)
+        sut = RepositoriesPresenter(searchInteractor, repositoriesRouter)
         sut.bindView(view)
     }
 
@@ -46,7 +42,7 @@ class SearchPresenterTest {
         val repository : RepositoryViewModel = mock()
 
         sut.onRepositoryClick(repository)
-        verify(searchRouter).showRepositoryDetails(repository)
+        verify(repositoriesRouter).showRepositoryDetails(repository)
     }
 
     @Test

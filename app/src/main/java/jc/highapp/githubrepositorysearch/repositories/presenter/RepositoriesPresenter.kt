@@ -1,17 +1,16 @@
-package jc.highapp.githubrepositorysearch.search.presenter
+package jc.highapp.githubrepositorysearch.repositories.presenter
 
 import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
 import jc.highapp.githubrepositorysearch.main.BasePresenter
-import jc.highapp.githubrepositorysearch.search.interactor.SearchInteractor
-import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
-import jc.highapp.githubrepositorysearch.search.router.SearchRouter
-import jc.highapp.githubrepositorysearch.search.view.SearchView
+import jc.highapp.githubrepositorysearch.repositories.interactor.SearchInteractor
+import jc.highapp.githubrepositorysearch.repositories.model.RepositoryViewModel
+import jc.highapp.githubrepositorysearch.repositories.router.RepositoriesRouter
+import jc.highapp.githubrepositorysearch.repositories.view.RepositoriesView
 import jc.highapp.githubrepositorysearch.utils.addTo
 
-class SearchPresenter(
+class RepositoriesPresenter(
     private val searchInteractor : SearchInteractor,
-    private val searchRouter: SearchRouter) : BasePresenter<SearchView>(){
+    private val repositoriesRouter: RepositoriesRouter) : BasePresenter<RepositoriesView>(){
 
 
     override fun onInit() {
@@ -19,7 +18,7 @@ class SearchPresenter(
     }
 
     fun onRepositoryClick(repository : RepositoryViewModel) {
-        searchRouter.showRepositoryDetails(repository)
+        repositoriesRouter.showRepositoryDetails(repository)
     }
 
     fun searchRepositoriesByName(text : String) : Observable<List<RepositoryViewModel>>{

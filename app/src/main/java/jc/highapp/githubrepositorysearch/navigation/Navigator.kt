@@ -3,7 +3,7 @@ package jc.highapp.githubrepositorysearch.navigation
 import android.content.Intent
 import android.net.Uri
 import androidx.fragment.app.FragmentActivity
-import jc.highapp.githubrepositorysearch.search.view.SearchFragment
+import jc.highapp.githubrepositorysearch.repositories.view.RepositoriesFragment
 import jc.highapp.githubrepositorysearch.utils.sendAction
 import jc.highapp.githubrepositorysearch.utils.showFragment
 
@@ -21,7 +21,7 @@ class Navigator {
     }
 
     fun showSearchFragment() {
-        activity?.showFragment(SearchFragment())
+        activity?.showFragment(RepositoriesFragment())
     }
 
     fun startFlow() {

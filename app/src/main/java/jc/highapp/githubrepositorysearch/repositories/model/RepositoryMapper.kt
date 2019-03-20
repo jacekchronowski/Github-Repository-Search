@@ -1,4 +1,4 @@
-package jc.highapp.githubrepositorysearch.search.model
+package jc.highapp.githubrepositorysearch.repositories.model
 
 import jc.highapp.githubrepositorysearch.network.model.repository.RepositoryApi
 

@@ -1,11 +1,9 @@
-package jc.highapp.githubrepositorysearch.search.interactor
+package jc.highapp.githubrepositorysearch.repositories.interactor
 
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import jc.highapp.githubrepositorysearch.network.api.GitHubApi
-import jc.highapp.githubrepositorysearch.search.model.RepositoryMapper
-import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
+import jc.highapp.githubrepositorysearch.repositories.model.RepositoryMapper
+import jc.highapp.githubrepositorysearch.repositories.model.RepositoryViewModel
 
 class RepositoryInteractor(
     private val gitHubApi: GitHubApi,

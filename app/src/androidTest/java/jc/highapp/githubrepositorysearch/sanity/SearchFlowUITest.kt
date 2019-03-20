@@ -16,7 +16,7 @@ import androidx.test.rule.ActivityTestRule
 import jc.highapp.githubrepositorysearch.R
 import jc.highapp.githubrepositorysearch.assertions.RecyclerViewItemCountAssertion.Companion.withItemCount
 import jc.highapp.githubrepositorysearch.main.MainActivity
-import jc.highapp.githubrepositorysearch.search.adapter.RepositoryViewHolder
+import jc.highapp.githubrepositorysearch.repositories.adapter.RepositoryViewHolder
 import org.hamcrest.CoreMatchers.allOf
 import org.junit.After
 import org.junit.Before

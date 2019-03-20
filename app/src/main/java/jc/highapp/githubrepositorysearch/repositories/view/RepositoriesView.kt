@@ -1,9 +1,9 @@
-package jc.highapp.githubrepositorysearch.search.view
+package jc.highapp.githubrepositorysearch.repositories.view
 
 import jc.highapp.githubrepositorysearch.main.BaseView
-import jc.highapp.githubrepositorysearch.search.model.RepositoryViewModel
+import jc.highapp.githubrepositorysearch.repositories.model.RepositoryViewModel
 
-interface SearchView : BaseView{
+interface RepositoriesView : BaseView{
     fun loadRepositoryList(repositories: List<RepositoryViewModel>)
     fun appendToRepositoryList(repositories: List<RepositoryViewModel>)
     fun showError()
