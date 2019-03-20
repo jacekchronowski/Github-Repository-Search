@@ -2,15 +2,16 @@ package jc.highapp.githubrepositorysearch.utils
 
 import android.content.Intent
 import android.net.Uri
+import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import jc.highapp.githubrepositorysearch.R
 
 
-fun FragmentActivity.showFragment(fragment: Fragment) {
+fun FragmentActivity.showFragment(fragment: Fragment, @IdRes containerResId : Int) {
     this.supportFragmentManager
         .beginTransaction()
-        .replace(R.id.fragment_container, fragment, fragment::class.java.simpleName)
+        .replace(containerResId, fragment, fragment::class.java.simpleName)
         .commit()
 }
 

@@ -1,4 +1,4 @@
-package jc.highapp.githubrepositorysearch.main
+package jc.highapp.githubrepositorysearch.mvp
 
 import io.reactivex.disposables.CompositeDisposable
 

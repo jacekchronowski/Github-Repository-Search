@@ -1,4 +1,4 @@
-package jc.highapp.githubrepositorysearch.main
+package jc.highapp.githubrepositorysearch.mvp
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,8 @@ import androidx.fragment.app.Fragment
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 
-abstract class BaseFragment<P : BasePresenter<V>, V : BaseView> : Fragment(), BaseView, KodeinAware{
+abstract class BaseFragment<P : BasePresenter<V>, V : BaseView> : Fragment(),
+    BaseView, KodeinAware{
 
     override val kodein: Kodein by lazy { (activity as KodeinAware).kodein }
     abstract val layoutResId : Int

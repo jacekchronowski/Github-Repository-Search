@@ -1,7 +1,7 @@
 package jc.highapp.githubrepositorysearch.repositories.presenter
 
 import io.reactivex.Observable
-import jc.highapp.githubrepositorysearch.main.BasePresenter
+import jc.highapp.githubrepositorysearch.mvp.BasePresenter
 import jc.highapp.githubrepositorysearch.repositories.interactor.SearchInteractor
 import jc.highapp.githubrepositorysearch.repositories.model.RepositoryViewModel
 import jc.highapp.githubrepositorysearch.repositories.router.RepositoriesRouter

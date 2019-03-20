@@ -7,17 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jakewharton.rxbinding3.widget.afterTextChangeEvents
 import io.reactivex.disposables.Disposable
 import jc.highapp.githubrepositorysearch.R
-import jc.highapp.githubrepositorysearch.main.BaseFragment
+import jc.highapp.githubrepositorysearch.mvp.BaseFragment
 import jc.highapp.githubrepositorysearch.repositories.adapter.RepositoryListAdapter
 import jc.highapp.githubrepositorysearch.repositories.model.RepositoryViewModel
 import jc.highapp.githubrepositorysearch.repositories.presenter.RepositoriesPresenter
 import jc.highapp.githubrepositorysearch.utils.EndlessRecyclerViewScrollListener
 import kotlinx.android.synthetic.main.search_fragment_layout.*
-import org.kodein.di.Kodein
-import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
 
-class RepositoriesFragment : BaseFragment<RepositoriesPresenter,RepositoriesView>(), RepositoriesView {
+class RepositoriesFragment : BaseFragment<RepositoriesPresenter, RepositoriesView>(), RepositoriesView {
 
     override val presenter: RepositoriesPresenter by instance()
     override val layoutResId: Int = R.layout.search_fragment_layout

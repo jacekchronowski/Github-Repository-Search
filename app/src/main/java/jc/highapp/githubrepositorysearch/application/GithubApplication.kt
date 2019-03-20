@@ -1,8 +1,10 @@
-package jc.highapp.githubrepositorysearch.main
+package jc.highapp.githubrepositorysearch.application
 
 import android.app.Application
 import com.github.aurae.retrofit2.LoganSquareConverterFactory
 import jc.highapp.githubrepositorysearch.constants.Constants
+import jc.highapp.githubrepositorysearch.main.MainPresenter
+import jc.highapp.githubrepositorysearch.main.MainRouter
 import jc.highapp.githubrepositorysearch.navigation.Navigator
 import jc.highapp.githubrepositorysearch.network.api.GitHubApi
 import jc.highapp.githubrepositorysearch.network.interceptors.HeaderInterceptor
@@ -12,6 +14,7 @@ import jc.highapp.githubrepositorysearch.repositories.interactor.SearchInteracto
 import jc.highapp.githubrepositorysearch.repositories.model.RepositoryMapper
 import jc.highapp.githubrepositorysearch.repositories.presenter.RepositoriesPresenter
 import jc.highapp.githubrepositorysearch.repositories.router.RepositoriesRouter
+import jc.highapp.githubrepositorysearch.users.EventsPresenter
 import jc.highapp.githubrepositorysearch.users.UsersPresenter
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -47,6 +50,10 @@ class GithubApplication : Application(), KodeinAware {
         }
         bind<Navigator>() with singleton { Navigator() }
         bind<RepositoryMapper>() with singleton { RepositoryMapper() }
+        bind<EventsPresenter>() with provider { EventsPresenter() }
         bind<UsersPresenter>() with provider { UsersPresenter() }
+        bind<MainPresenter>() with provider { MainPresenter(instance()) }
+        bind<MainRouter>() with provider { MainRouter(instance()) }
+
     }
 }
