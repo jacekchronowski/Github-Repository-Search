@@ -5,11 +5,10 @@ import android.net.Uri
 import androidx.fragment.app.FragmentActivity
 import jc.highapp.githubrepositorysearch.R
 import jc.highapp.githubrepositorysearch.repositories.view.RepositoriesFragment
-import jc.highapp.githubrepositorysearch.users.EventsFragment
+import jc.highapp.githubrepositorysearch.events.view.EventsFragment
 import jc.highapp.githubrepositorysearch.users.UsersFragment
 import jc.highapp.githubrepositorysearch.utils.sendAction
 import jc.highapp.githubrepositorysearch.utils.showFragment
-import kotlinx.android.synthetic.main.activity_main.view.*
 
 
 class Navigator {

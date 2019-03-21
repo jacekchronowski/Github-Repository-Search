@@ -1,6 +1,8 @@
 package jc.highapp.githubrepositorysearch.users
 
 import jc.highapp.githubrepositorysearch.R
+import jc.highapp.githubrepositorysearch.events.presenter.EventsPresenter
+import jc.highapp.githubrepositorysearch.events.view.EventsView
 import jc.highapp.githubrepositorysearch.mvp.BaseFragment
 import org.kodein.di.generic.instance
 

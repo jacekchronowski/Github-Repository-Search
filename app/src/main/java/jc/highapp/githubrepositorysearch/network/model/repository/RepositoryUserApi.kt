@@ -1,10 +1,10 @@
-package jc.highapp.githubrepositorysearch.network.model.user
+package jc.highapp.githubrepositorysearch.network.model.repository
 
 import com.bluelinelabs.logansquare.annotation.JsonField
 import com.bluelinelabs.logansquare.annotation.JsonObject
 
 @JsonObject
-data class UserApi(
+data class RepositoryUserApi(
     @JsonField var login : String? = "",
     @JsonField var id : Long = 0L,
     @JsonField(name = ["avatar_url"]) var avatarUrl : String? = null,

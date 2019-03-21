@@ -1,0 +1,3 @@
+package jc.highapp.githubrepositorysearch.events.model
+
+interface EventsViewModel

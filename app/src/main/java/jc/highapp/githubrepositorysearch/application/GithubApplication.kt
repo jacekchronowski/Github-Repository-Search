@@ -14,7 +14,7 @@ import jc.highapp.githubrepositorysearch.repositories.interactor.SearchInteracto
 import jc.highapp.githubrepositorysearch.repositories.model.RepositoryMapper
 import jc.highapp.githubrepositorysearch.repositories.presenter.RepositoriesPresenter
 import jc.highapp.githubrepositorysearch.repositories.router.RepositoriesRouter
-import jc.highapp.githubrepositorysearch.users.EventsPresenter
+import jc.highapp.githubrepositorysearch.events.presenter.EventsPresenter
 import jc.highapp.githubrepositorysearch.users.UsersPresenter
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
