@@ -1,6 +1,7 @@
 package jc.highapp.githubrepositorysearch.network.api
 
 import io.reactivex.Observable
+import jc.highapp.githubrepositorysearch.network.model.event.EventApi
 import jc.highapp.githubrepositorysearch.network.model.repository.RepositoriesResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -12,4 +13,7 @@ interface GitHubApi {
     fun getRepositoriesByName(
         @Query("q") searchQuery : String?,
         @Query("page") pageNumber : Int) : Observable<Response<RepositoriesResponse>>
+
+    @GET("events")
+    fun getEvents(@Query("page") pageNumber: Int) : Observable<Response<List<EventApi>>>
 }
